@@ -1,6 +1,8 @@
 version: '3'
 services:
   web:
+    stdin_open: true
+    container_name: react
     build: 
       context: .
       dockerfile: Dockerfile.dev
@@ -9,3 +11,12 @@ services:
     volumes:
       - /app/node_modules
       - .:/app
+  test:
+    container_name: test
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: ["yarn","test"]
