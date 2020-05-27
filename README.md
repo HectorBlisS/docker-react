@@ -14,6 +14,9 @@ If Reat exits with status 0:
 In the docker-compose.yml
 docker-compose down && docker-compose up --build
 
+Si queremos usar un container que ya corre para ejecutar otro comando:
+docker exec -it CONTAINER_ID yarn test
+
 
 
 
