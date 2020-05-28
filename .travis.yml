@@ -1,0 +1,12 @@
+language: generic 
+sudo: required
+services:
+  - docker
+
+
+before_install:
+  - docker build -t hectorbliss/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true hectorbliss/docker-react yarn test -- --coverage
+
